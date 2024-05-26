@@ -55,3 +55,8 @@ jobs:
       - run: cargo clippy --all -- -D warnings
       - run: cargo clippy --target wasm32-unknown-unknown -- -D warnings
       - run: cargo test --all
+      - name: Create artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: path/to/your/files
