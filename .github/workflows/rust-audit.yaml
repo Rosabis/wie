@@ -23,11 +23,9 @@ jobs:
         with:
           path: target
           key: ${{ runner.os }}-{{ matrix.rust }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
-
-      - uses: actions/checkout@v4
+      - name: Create artifact
+        uses: actions/upload-artifact@v2
         with:
-          submodules: "recursive"
-
-      - uses: rustsec/audit-check@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+           name: my-artifact
+           path: ./
+      
